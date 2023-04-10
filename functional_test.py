@@ -10,7 +10,7 @@ class newVisitorTest(unittest.TestCase):
     
     def test_can_start_a_list_and_retrive_it_later(self):
         self.browser.get('http://localhost:8000')
-        self.assertEqual("To-Do", self.browser.title)
+        self.assertEqual("To-Do lists", self.browser.title)
         self.fail("Finish the test")
         
         
