@@ -18,7 +18,7 @@ class newVisitorTest(unittest.TestCase):
         header_text = self.browser.find_element(By.TAG_NAME,'h1').text
         self.assertIn('To-Do', header_text)
         
-        inputbox = self.browser.find_element('ide_new_item')
+        inputbox = self.browser.find_element(By.ID, 'id_new_item')
         self.assertEqual(
             inputbox.get_attribute('placeholder'),
             'Enter a to-do item'
@@ -32,7 +32,8 @@ class newVisitorTest(unittest.TestCase):
         table = self.browser.find_element(By.ID,'id_list_table')
         rows = table.find_elements(By.TAG_NAME,'tr')
         self.assertTrue(
-            any(row.text == '1: Buy peacock feathers' for row in rows)
+            any(row.text == '1: Buy peacock feathers' for row in rows),
+            "New to-do item did not appear in table"
         )
         
         self.fail('Fininsh the test!')
